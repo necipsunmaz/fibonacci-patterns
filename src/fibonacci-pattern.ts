@@ -1,27 +1,26 @@
 import { Cartesian, CartesianOptions } from './cartesian';
-import { FibonacciPatternEvent } from './fibonacci-pattern-event';
 import { Spiral } from './spiral';
-
-export interface Options {
-  cartesianOptions: CartesianOptions;
-}
-
-export default class FibonacciPattern extends FibonacciPatternEvent {
-  private _options: Options;
-  private _canvas: HTMLCanvasElement;
-  private _cartesian: Cartesian;
-
-  constructor(private canvas: HTMLCanvasElement, private options: Options = <Options>{}) {
-    super();
-    this._canvas = canvas;
-    this._options = options;
-    this._cartesian = new Cartesian(canvas, options.cartesianOptions || new CartesianOptions());
+import { SunFlower } from './sunflower';
+export default class FibonacciPattern extends Cartesian {
+  constructor(canvas: HTMLCanvasElement, cartesianOptions: CartesianOptions = new CartesianOptions()) {
+    super(canvas, cartesianOptions);
   }
 
-  public makeSpiral(maxTheta: number) {
-    const spiral = new Spiral(maxTheta);
-    spiral.coordinates.forEach(coordinate => {
-      this._cartesian.drawPoint(coordinate.x, coordinate.y, 2);
+  public makeSpiral(maxTheta: number, line: number) {
+    this.clear();
+    new Spiral(maxTheta, line).createCoordinate().then(coordinates => {
+      coordinates.forEach((coordinate, i) => {
+        this.drawPoint(coordinate.x, coordinate.y, 2, i);
+      });
+    });
+  }
+
+  public makeSunflower(seed: number) {
+    this.clear();
+    new SunFlower(seed).createSeeds().then(seeds => {
+      seeds.forEach((seed, i) => {
+        this.drawPoint(seed.x, seed.y, 0.7, i);
+      });
     });
   }
 }

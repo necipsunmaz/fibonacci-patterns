@@ -8,34 +8,36 @@ export interface Seed {
   y: number;
 }
 
-export class SunFlower {
-  public numberOfSeed: number;
-  public goldenAngle: number = 0;
-  public fibonacci: Fibonacci;
-  public seeds: Seed[] = [];
+export class SunFlower extends Fibonacci {
+  private _numberOfSeed: number;
 
   constructor(numberOfSeed: number) {
-    this.numberOfSeed = numberOfSeed;
-    this.fibonacci = new Fibonacci(numberOfSeed);
-  }
-
-  public calculateGoldenAngle() {
-    this.goldenAngle = 360 - 360 / this.fibonacci.phi;
-  }
-
-  public flower() {
-    this.calculateGoldenAngle();
-    for (let i = 0; i < this.numberOfSeed; i++) {
-      const previousSeed = this.seeds[i - 1];
-      const seed = {
-        distance: Math.sqrt(i + 1),
-        theta: previousSeed ? previousSeed.theta + this.goldenAngle : 0,
-      } as Seed;
-
-      seed.x = seed.distance * Math.cos(RADIANS(seed.theta));
-      seed.y = seed.distance * Math.sin(RADIANS(seed.theta));
-
-      this.seeds.push(seed);
+    super();
+    this._numberOfSeed = numberOfSeed;
+    if (numberOfSeed < 1) {
+      throw 'Parameters not accepted!';
     }
   }
+
+  public createSeeds = () =>
+    new Promise<Seed[]>(resolve => {
+      this.calculatePhi(this._numberOfSeed / 10).then(phi => {
+        const goldenAngle = 360 - 360 / phi;
+        const seeds: Seed[] = [];
+        for (let i = 0; i < this._numberOfSeed; i++) {
+          const previousSeed = seeds[i - 1];
+          const seed = {
+            distance: Math.sqrt(i + 1),
+            theta: previousSeed ? previousSeed.theta + goldenAngle : 0,
+          } as Seed;
+
+          seed.x = seed.distance * Math.cos(RADIANS(seed.theta));
+          seed.y = seed.distance * Math.sin(RADIANS(seed.theta));
+
+          seeds.push(seed);
+        }
+
+        resolve(seeds);
+      });
+    });
 }
