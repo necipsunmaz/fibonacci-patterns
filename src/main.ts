@@ -1,6 +1,9 @@
-import FibonacciPattern from './fibonacci-pattern';
+Array.prototype.forEach.call(document.querySelectorAll('input[type="range"]'), range => {
+  range.nextElementSibling && (range.nextElementSibling.innerHTML = range.value);
+});
 
-var canvas = document.querySelector('canvas') as HTMLCanvasElement;
-
-var spiral = new FibonacciPattern(canvas);
-spiral.makeSpiral(2400);
+document.querySelectorAll('input[type="range"]').forEach(el => {
+  el.addEventListener('input', event => {
+    el.nextElementSibling && (el.nextElementSibling.innerHTML = (el as HTMLInputElement)?.value);
+  });
+});

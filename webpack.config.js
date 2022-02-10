@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: {
     main: './src/main.ts',
+    app: './src/app.ts',
   },
   output: {
     path: path.resolve(__dirname, './js'),
