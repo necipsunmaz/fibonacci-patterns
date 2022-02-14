@@ -1,6 +1,6 @@
 <h1 align="center">📈 Fibonacci Patterns 📉</h1>
 <p align="center">
-  <a href="https://github.com/necipsunmaz/fibonacci-patterns/blob/master/LICENSE">
+  <a href="https://raw.githubusercontent.com/necipsunmaz/fibonacci-patterns/master/LICENCE">
     <img alt="License: APACHE" src="https://img.shields.io/badge/license-APACHE 2.0-yellow.svg" target="_blank" />
   </a>
   <a href="https://github.com/necipsunmaz/fibonacci-patterns">
