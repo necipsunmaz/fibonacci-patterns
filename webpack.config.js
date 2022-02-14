@@ -8,7 +8,7 @@ module.exports = {
     app: './src/app.ts',
   },
   output: {
-    path: path.resolve(__dirname, './js'),
+    path: path.resolve(__dirname, './docs/js'),
     filename: '[name]-bundle.js',
   },
   resolve: {

@@ -11,7 +11,7 @@
     <header>
         <h1>Fibonacci Patterns Draw</h1>
         <h2>with Cartesian Coordinate System</h2>
-        <a href="#constants">Constants</a>
+        <a href="#parameters">Parameters</a>
         <a target="_blank" href="http://github.com/necipsunmaz/fibonacci-patterns">Source Code</a>
         <a target="_blank" href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian Coordinate System
             at Wikipedia</a>
@@ -45,7 +45,7 @@
         </div>
         <div class="draw-area">
             <div class="line-switch">
-                <label>Line: </label>
+                <label>Cartesian Line: </label>
                 <input id="spiralBracket" class="bracket" type="range" min="0" max="1" value="1" />
             </div>
             <canvas id="spiral" width="800" height="800"></canvas>
@@ -76,15 +76,15 @@
         </div>
         <div class="draw-area">
             <div class="line-switch">
-                <label>Line: </label>
+                <label>Cartesian Line: </label>
                 <input id="sunflowerBracket" class="bracket" type="range" min="0" max="1" value="1" />
             </div>
             <canvas id="sunflower" width="800" height="800"></canvas>
         </div>
     </div>
 
-    <div id="constants">
-        <h3>Constants</h3>
+    <div id="parameters">
+        <h3>Parameters</h3>
         <table>
             <thead>
                 <th width="100">Instructor</th>
@@ -92,8 +92,28 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Lorem</td>
-                    <td>Lorem Ipsum</td>
+                    <td>Theta</td>
+                    <td>The number of points of the spiral line.</td>
+                </tr>
+                <tr>
+                    <td>Line</td>
+                    <td>The count of the spiral line.</td>
+                </tr>
+                <tr>
+                    <td>Seed</td>
+                    <td>The number of count of the Sunflower seed.</td>
+                </tr>
+                <tr>
+                    <td>Scale</td>
+                    <td>Scale ratio of the draw area.</td>
+                </tr>
+                <tr>
+                    <td>Delay</td>
+                    <td>Millisecond delay of the drawing.</td>
+                </tr>
+                <tr>
+                    <td>Cartesian Line</td>
+                    <td>Open/Close of the Cartesian Coordinate Systems.</td>
                 </tr>
             </tbody>
         </table>

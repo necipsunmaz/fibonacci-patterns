@@ -12,7 +12,7 @@
   "scripts": {
     "wp": "webpack",
     "wpw": "webpack --watch",
-    "live": "serve -l 9000",
+    "live": "serve docs -l 9000",
     "serve": "npm run wpw & npm run live"
   },
   "devDependencies": {

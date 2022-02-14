@@ -6,8 +6,8 @@ const spiralCanvas = document.getElementById('spiral') as HTMLCanvasElement;
 let thetaCount = 2500;
 let line = 1;
 let spiralOptions = {
-  maxApsis: 400,
-  maxOrdinat: 400,
+  maxApsis: 350,
+  maxOrdinat: 350,
   brace: 50,
   margin: 50,
   scale: 1,
